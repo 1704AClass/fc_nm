@@ -6,8 +6,7 @@ import com.ningmeng.framework.domain.course.CourseMarket;
 import com.ningmeng.framework.domain.course.ext.CategoryNode;
 import com.ningmeng.framework.model.response.ResponseResult;
 import com.ningmeng.manage_course.service.CategoryService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -24,22 +23,26 @@ public class CategoryController implements CategoryControllerApi {
     }
 
     @Override
-    public CourseBase getCourseBaseById(String courseId) throws RuntimeException {
+    @GetMapping("/coursebase/get/{courseId}")
+    public CourseBase getCourseBaseById(@PathVariable("courseId") String courseId) throws RuntimeException {
         return categoryService.getCourseBaseById(courseId);
     }
 
     @Override
-    public ResponseResult updateCourseBase(String id, CourseBase courseBase) {
+    @PutMapping("/coursebase/update/{id}")
+    public ResponseResult updateCourseBase(@PathVariable("id") String id,@RequestBody CourseBase courseBase) {
         return categoryService.updateCourseBase(id,courseBase);
     }
 
     @Override
+    @GetMapping("/coursemarket/get/{courseId}")
     public CourseMarket getCourseMarketById(String courseId) {
         return categoryService.getCourseMarketById(courseId);
     }
 
     @Override
-    public ResponseResult updateCourseMarket(String id, CourseMarket courseMarket) {
+    @PutMapping("/coursemarket/update/{id}")
+    public ResponseResult updateCourseMarket(@PathVariable("id") String id,@RequestBody CourseMarket courseMarket) {
         return categoryService.updateCourseMarket(id,courseMarket);
     }
 }

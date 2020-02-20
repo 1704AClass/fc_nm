@@ -3,10 +3,12 @@ package com.ningmeng.manage_course.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.ningmeng.framework.domain.course.CourseBase;
+import com.ningmeng.framework.domain.course.CoursePic;
 import com.ningmeng.framework.domain.course.Teachplan;
 import com.ningmeng.framework.domain.course.ext.CourseInfo;
 import com.ningmeng.framework.domain.course.ext.TeachplanNode;
 import com.ningmeng.framework.domain.course.request.CourseListRequest;
+import com.ningmeng.framework.domain.course.response.AddCourseResult;
 import com.ningmeng.framework.domain.system.SysDictionary;
 import com.ningmeng.framework.exception.ExceptionCast;
 import com.ningmeng.framework.model.response.CommonCode;
@@ -38,7 +40,7 @@ public class CourseService {
     private CourseBaseRepository courseBaseRepository;
 
     @Resource
-    private SysDicthinaryRepository sysDicthinaryRepository;
+    private CoursePicRepositroy coursePicRepository;
 
     //查询课程计划
     public TeachplanNode findTeachplanList(String courseId){
@@ -116,21 +118,73 @@ public class CourseService {
     @Transactional
     public QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest) {
         if(courseListRequest == null){
-            ExceptionCast.cast(CommonCode.FAIL);
+            courseListRequest = new CourseListRequest();
         }
+        if(page <= 0){
+            page = 0;
+        }
+        if(size <= 0){
+            size = 20;
+        }
+        //设置分页参数
         PageHelper.startPage(page,size);
+        //分页查询
         Page<CourseInfo> courseInfoPage = courseMapper.findCourseListPage(courseListRequest);
-        QueryResult queryResult = new QueryResult();
+        QueryResult<CourseInfo> queryResult = new QueryResult();
         queryResult.setList(courseInfoPage.getResult());
         queryResult.setTotal(courseInfoPage.getTotal());
         return new QueryResponseResult<CourseInfo>(CommonCode.SUCCESS,queryResult);
     }
 
 
-    public SysDictionary getByType(String type) {
-        if(StringUtils.isEmpty(type)){
-            ExceptionCast.cast(CommonCode.FAIL);
-        }
-        return sysDicthinaryRepository.findByDType(type);
+    @Transactional
+    public AddCourseResult addCourseBase(CourseBase courseBase) {
+        //课程状态默认为未发布
+        courseBase.setStatus("202001");
+        courseBaseRepository.save(courseBase);
+        return new AddCourseResult(CommonCode.SUCCESS,courseBase.getId());
     }
+
+    @Transactional
+    public ResponseResult saveCoursePic(String courseId, String pic) {
+        //查询课程图片
+        Optional<CoursePic> picOptional = coursePicRepository.findById(courseId);
+        CoursePic coursePic = null;
+        if(picOptional.isPresent()){
+            coursePic = picOptional.get();
+        }
+        //没有课程图片则新建对象
+        if(coursePic == null){
+            coursePic = new CoursePic();
+        }
+        coursePic.setCourseid(courseId);
+        coursePic.setPic(pic);
+        //保存课程图片
+        coursePicRepository.save(coursePic);
+        return new ResponseResult(CommonCode.SUCCESS);
+    }
+
+
+    public CoursePic findCoursePic(String courseId) {
+        Optional<CoursePic> one = coursePicRepository.findOne(courseId);
+        if(one.isPresent()){
+            return one.get();
+        }
+        return null;
+    }
+
+
+    //删除课程图片
+    @Transactional
+    public ResponseResult deleteCoursePic(String courseId) {
+        //执行删除，返回1表示删除成功，返回0表示删除失败
+        long result = coursePicRepository.deleteByCourseid(courseId);
+        if(result > 0){
+            return new ResponseResult(CommonCode.SUCCESS);
+        }
+        return new ResponseResult(CommonCode.FAIL);
+    }
+
+
+
 }

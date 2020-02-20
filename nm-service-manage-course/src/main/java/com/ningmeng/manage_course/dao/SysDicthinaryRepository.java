@@ -1,13 +1,16 @@
 package com.ningmeng.manage_course.dao;
 
 import com.ningmeng.framework.domain.system.SysDictionary;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by Administrator.
  */
-public interface SysDicthinaryRepository extends JpaRepository<SysDictionary,String> {
+@Repository
+public interface SysDicthinaryRepository extends MongoRepository<SysDictionary,String> {
 
-    SysDictionary findByDType(String type);
+    //根据字典分类查询字典信息
+    SysDictionary findByDType(String dType);
 
 }

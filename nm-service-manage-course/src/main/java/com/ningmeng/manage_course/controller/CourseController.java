@@ -3,10 +3,12 @@ package com.ningmeng.manage_course.controller;
 import com.ningmeng.api.course.CourseControllerApi;
 import com.ningmeng.framework.domain.course.CourseBase;
 import com.ningmeng.framework.domain.course.CourseMarket;
+import com.ningmeng.framework.domain.course.CoursePic;
 import com.ningmeng.framework.domain.course.Teachplan;
 import com.ningmeng.framework.domain.course.ext.CourseInfo;
 import com.ningmeng.framework.domain.course.ext.TeachplanNode;
 import com.ningmeng.framework.domain.course.request.CourseListRequest;
+import com.ningmeng.framework.domain.course.response.AddCourseResult;
 import com.ningmeng.framework.model.response.QueryResponseResult;
 import com.ningmeng.framework.model.response.ResponseResult;
 import com.ningmeng.manage_course.service.CourseService;
@@ -35,9 +37,38 @@ public class CourseController implements CourseControllerApi {
     }
 
     @Override
-    @GetMapping("/findCourseList/{page}/{size}")
-    public QueryResponseResult<CourseInfo> findCourseList(@PathVariable("page") int page,@PathVariable("size") int size, @RequestBody CourseListRequest courseListRequest) {
+    @GetMapping("/coursebase/list/{page}/{size}")
+    public QueryResponseResult<CourseInfo> findCourseList(@PathVariable("page") int page,@PathVariable("size") int size,CourseListRequest courseListRequest) {
         return courseService.findCourseList(page,size,courseListRequest);
     }
+
+    @Override
+    @PostMapping("/coursebase/add")
+    public AddCourseResult addCourseBase(@RequestBody CourseBase courseBase) {
+        return courseService.addCourseBase(courseBase);
+    }
+
+    @Override
+    @GetMapping("/coursePic/add")
+    public ResponseResult addCoursePic(@RequestParam("courseId") String courseId,
+                                       @RequestParam("pic") String pic) {
+        return courseService.saveCoursePic(courseId,pic);
+    }
+
+    @Override
+    @GetMapping("/coursepic/list/{courseId}")
+    public CoursePic findCoursePic(@PathVariable("courseId") String courseId) {
+        return courseService.findCoursePic(courseId);
+    }
+
+    @Override
+    @DeleteMapping("/coursepic/delete")
+    public ResponseResult deleteCoursePic(@RequestParam("courseId") String courseId) {
+        return courseService.deleteCoursePic(courseId);
+    }
+
+
+
+
 
 }

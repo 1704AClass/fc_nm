@@ -9,11 +9,12 @@ import com.ningmeng.framework.model.response.ResponseResult;
 import com.ningmeng.manage_course.dao.CategoryMapper;
 import com.ningmeng.manage_course.dao.CourseBaseRepository;
 import com.ningmeng.manage_course.dao.CourseMarketRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -30,40 +31,62 @@ public class CategoryService {
 
     @Transactional
     public CategoryNode findList() {
-        return categoryMapper.findList();
+        return categoryMapper.selectList();
+    }
+
+    public CourseBase getCourseBaseById(String courseId) {
+        Optional<CourseBase> optional = courseBaseRepository.findById(courseId);
+        if(optional.isPresent()){
+            return optional.get();
+        }
+        return null;
     }
 
     @Transactional
-    public CourseBase getCourseBaseById(String courseId) {
-        if(StringUtils.isEmpty(courseId)){
+    public ResponseResult updateCourseBase(String id, CourseBase courseBase) {
+        CourseBase one = this.getCourseBaseById(id);
+        if(one == null){
             ExceptionCast.cast(CommonCode.FAIL);
         }
-        return courseBaseRepository.findById(courseId).get();
-    }
-
-    public ResponseResult updateCourseBase(String id, CourseBase courseBase) {
-        CourseBase base = courseBaseRepository.getOne(id);
-        if(base == null){
-            courseBase.setId(id);
-        }
-        courseBaseRepository.saveAndFlush(courseBase);
+        //修改课程信息
+        one.setName(courseBase.getName());
+        one.setMt(courseBase.getMt());
+        one.setSt(courseBase.getSt());
+        one.setGrade(courseBase.getGrade());
+        one.setStudymodel(courseBase.getStudymodel());
+        one.setUsers(courseBase.getUsers());
+        one.setDescription(one.getDescription());
+        CourseBase save = courseBaseRepository.saveAndFlush(one);
         return new ResponseResult(CommonCode.SUCCESS);
     }
 
-    @Transactional
     public CourseMarket getCourseMarketById(String courseId) {
-        if(StringUtils.isEmpty(courseId)){
-            ExceptionCast.cast(CommonCode.FAIL);
+        Optional<CourseMarket> optional = courseMarketRepository.findById(courseId);
+        if(optional.isPresent()){
+            return optional.get();
         }
-        return courseMarketRepository.getOne(courseId);
+        return null;
     }
 
+    @Transactional
     public ResponseResult updateCourseMarket(String id, CourseMarket courseMarket) {
-        CourseMarket market = courseMarketRepository.getOne(id);
-        if(market == null){
+        CourseMarket market = this.getCourseMarketById(id);
+        if(market != null){
+            market.setCharge(courseMarket.getCharge());
+            market.setStartTime(courseMarket.getStartTime());
+            market.setEndTime(courseMarket.getEndTime());
+            market.setPrice(courseMarket.getPrice());
+            market.setQq(courseMarket.getQq());
+            market.setValid(courseMarket.getValid());
+            courseMarketRepository.save(market);
+        }else{
+            //添加课程营销信息
+            market = new CourseMarket();
+            BeanUtils.copyProperties(courseMarket,market);
+            //设置课程id
             market.setId(id);
+            courseMarketRepository.save(market);
         }
-        courseMarketRepository.saveAndFlush(market);
         return new ResponseResult(CommonCode.SUCCESS);
     }
 }
