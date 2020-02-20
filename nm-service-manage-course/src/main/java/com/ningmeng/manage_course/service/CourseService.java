@@ -7,15 +7,13 @@ import com.ningmeng.framework.domain.course.Teachplan;
 import com.ningmeng.framework.domain.course.ext.CourseInfo;
 import com.ningmeng.framework.domain.course.ext.TeachplanNode;
 import com.ningmeng.framework.domain.course.request.CourseListRequest;
+import com.ningmeng.framework.domain.system.SysDictionary;
 import com.ningmeng.framework.exception.ExceptionCast;
 import com.ningmeng.framework.model.response.CommonCode;
 import com.ningmeng.framework.model.response.QueryResponseResult;
 import com.ningmeng.framework.model.response.QueryResult;
 import com.ningmeng.framework.model.response.ResponseResult;
-import com.ningmeng.manage_course.dao.CourseBaseRepository;
-import com.ningmeng.manage_course.dao.CourseMapper;
-import com.ningmeng.manage_course.dao.TeachplanMapper;
-import com.ningmeng.manage_course.dao.TeachplanRepository;
+import com.ningmeng.manage_course.dao.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -38,6 +36,9 @@ public class CourseService {
 
     @Resource
     private CourseBaseRepository courseBaseRepository;
+
+    @Resource
+    private SysDicthinaryRepository sysDicthinaryRepository;
 
     //查询课程计划
     public TeachplanNode findTeachplanList(String courseId){
@@ -126,11 +127,10 @@ public class CourseService {
     }
 
 
-
-
-
-
-
-
-
+    public SysDictionary getByType(String type) {
+        if(StringUtils.isEmpty(type)){
+            ExceptionCast.cast(CommonCode.FAIL);
+        }
+        return sysDicthinaryRepository.findByDType(type);
+    }
 }

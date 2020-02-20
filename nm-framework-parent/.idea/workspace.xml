@@ -29,8 +29,8 @@
       <list>
         <option value="package-info" />
         <option value="package.json" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -163,7 +163,7 @@
       <workItem from="1582088365731" duration="162000" />
       <workItem from="1582090774965" duration="1583000" />
       <workItem from="1582113902292" duration="1640000" />
-      <workItem from="1582163952082" duration="2021000" />
+      <workItem from="1582163952082" duration="5162000" />
     </task>
     <servers />
   </component>
@@ -171,18 +171,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="722" y="51" key="#Project_Structure" timestamp="1581770431826">
+    <state x="705" y="50" key="#Project_Structure" timestamp="1582169528110">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="722" y="51" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1581770431826" />
+    <state x="705" y="50" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1582169528110" />
     <state x="521" y="209" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581474671812">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="521" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1581474671812" />
-    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1582164280921">
+    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1582170406207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1582164280921" />
+    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1582170406207" />
     <state x="762" y="323" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581599551539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -247,10 +247,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="259" y="69" width="1180" height="583" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1581684259900" />
-    <state x="854" y="177" key="run.anything.popup" timestamp="1582030494691">
+    <state x="854" y="178" key="run.anything.popup" timestamp="1582170138043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="854" y="177" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1582030494691" />
+    <state x="854" y="178" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1582170138043" />
     <state x="490" y="146" width="672" height="678" key="search.everywhere.popup" timestamp="1582114996077">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
