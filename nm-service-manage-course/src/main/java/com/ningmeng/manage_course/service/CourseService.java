@@ -1,12 +1,19 @@
 package com.ningmeng.manage_course.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.ningmeng.framework.domain.course.CourseBase;
 import com.ningmeng.framework.domain.course.Teachplan;
+import com.ningmeng.framework.domain.course.ext.CourseInfo;
 import com.ningmeng.framework.domain.course.ext.TeachplanNode;
+import com.ningmeng.framework.domain.course.request.CourseListRequest;
 import com.ningmeng.framework.exception.ExceptionCast;
 import com.ningmeng.framework.model.response.CommonCode;
+import com.ningmeng.framework.model.response.QueryResponseResult;
+import com.ningmeng.framework.model.response.QueryResult;
 import com.ningmeng.framework.model.response.ResponseResult;
 import com.ningmeng.manage_course.dao.CourseBaseRepository;
+import com.ningmeng.manage_course.dao.CourseMapper;
 import com.ningmeng.manage_course.dao.TeachplanMapper;
 import com.ningmeng.manage_course.dao.TeachplanRepository;
 import org.springframework.stereotype.Service;
@@ -22,6 +29,9 @@ public class CourseService {
 
     @Resource
     private TeachplanMapper teachplanMapper;
+
+    @Resource
+    private CourseMapper courseMapper;
 
     @Resource
     private TeachplanRepository teachplanRepository;
@@ -100,6 +110,25 @@ public class CourseService {
         teachplanRepository.save(teachplan);
         return new ResponseResult(CommonCode.SUCCESS);
     }
+
+
+    @Transactional
+    public QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest) {
+        if(courseListRequest == null){
+            ExceptionCast.cast(CommonCode.FAIL);
+        }
+        PageHelper.startPage(page,size);
+        Page<CourseInfo> courseInfoPage = courseMapper.findCourseListPage(courseListRequest);
+        QueryResult queryResult = new QueryResult();
+        queryResult.setList(courseInfoPage.getResult());
+        queryResult.setTotal(courseInfoPage.getTotal());
+        return new QueryResponseResult<CourseInfo>(CommonCode.SUCCESS,queryResult);
+    }
+
+
+
+
+
 
 
 

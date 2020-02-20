@@ -22,11 +22,5 @@ public interface CourseControllerApi {
     @ApiOperation("查询我的课程列表")
     public QueryResponseResult<CourseInfo> findCourseList(int page, int size, CourseListRequest courseListRequest);
 
-    @ApiOperation("获取课程基础信息")
-    public CourseBase getCourseBaseById(String courseId) throws RuntimeException;
-
-    @ApiOperation("更新课程基础信息")
-    public ResponseResult updateCourseBase(String id, CourseMarket courseMarket);
-
 
 }
