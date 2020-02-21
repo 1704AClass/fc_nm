@@ -1,6 +1,5 @@
 package com.ningmeng.manage_course.service;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.ningmeng.framework.domain.course.CourseBase;
 import com.ningmeng.framework.domain.course.CoursePic;
@@ -9,13 +8,13 @@ import com.ningmeng.framework.domain.course.ext.CourseInfo;
 import com.ningmeng.framework.domain.course.ext.TeachplanNode;
 import com.ningmeng.framework.domain.course.request.CourseListRequest;
 import com.ningmeng.framework.domain.course.response.AddCourseResult;
-import com.ningmeng.framework.domain.system.SysDictionary;
 import com.ningmeng.framework.exception.ExceptionCast;
 import com.ningmeng.framework.model.response.CommonCode;
 import com.ningmeng.framework.model.response.QueryResponseResult;
 import com.ningmeng.framework.model.response.QueryResult;
 import com.ningmeng.framework.model.response.ResponseResult;
 import com.ningmeng.manage_course.dao.*;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -128,12 +127,12 @@ public class CourseService {
         }
         //设置分页参数
         PageHelper.startPage(page,size);
-        //分页查询
+        //分页查询s
         Page<CourseInfo> courseInfoPage = courseMapper.findCourseListPage(courseListRequest);
         QueryResult<CourseInfo> queryResult = new QueryResult();
-        queryResult.setList(courseInfoPage.getResult());
-        queryResult.setTotal(courseInfoPage.getTotal());
-        return new QueryResponseResult<CourseInfo>(CommonCode.SUCCESS,queryResult);
+        queryResult.setList(courseInfoPage.getContent());
+        queryResult.setTotal(courseInfoPage.getTotalElements());
+        return new QueryResponseResult(CommonCode.SUCCESS,queryResult);
     }
 
 
@@ -166,7 +165,7 @@ public class CourseService {
 
 
     public CoursePic findCoursePic(String courseId) {
-        Optional<CoursePic> one = coursePicRepository.findOne(courseId);
+        Optional<CoursePic> one = coursePicRepository.findById(courseId);
         if(one.isPresent()){
             return one.get();
         }

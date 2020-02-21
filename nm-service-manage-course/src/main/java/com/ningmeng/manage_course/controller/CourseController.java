@@ -2,10 +2,8 @@ package com.ningmeng.manage_course.controller;
 
 import com.ningmeng.api.course.CourseControllerApi;
 import com.ningmeng.framework.domain.course.CourseBase;
-import com.ningmeng.framework.domain.course.CourseMarket;
 import com.ningmeng.framework.domain.course.CoursePic;
 import com.ningmeng.framework.domain.course.Teachplan;
-import com.ningmeng.framework.domain.course.ext.CourseInfo;
 import com.ningmeng.framework.domain.course.ext.TeachplanNode;
 import com.ningmeng.framework.domain.course.request.CourseListRequest;
 import com.ningmeng.framework.domain.course.response.AddCourseResult;
@@ -38,7 +36,7 @@ public class CourseController implements CourseControllerApi {
 
     @Override
     @GetMapping("/coursebase/list/{page}/{size}")
-    public QueryResponseResult<CourseInfo> findCourseList(@PathVariable("page") int page,@PathVariable("size") int size,CourseListRequest courseListRequest) {
+    public QueryResponseResult findCourseList(@PathVariable("page") int page,@PathVariable("size") int size,CourseListRequest courseListRequest) {
         return courseService.findCourseList(page,size,courseListRequest);
     }
 
