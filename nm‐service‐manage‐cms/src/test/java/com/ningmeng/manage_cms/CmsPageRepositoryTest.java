@@ -8,8 +8,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +23,10 @@ import java.util.Optional;
 public class CmsPageRepositoryTest{
     @Autowired
     CmsPageRepository cmsPageRepository;
+
+    @Resource
+    private RestTemplate restTemplate;
+
 
     //分页测试
     @Test
@@ -98,6 +105,18 @@ public class CmsPageRepositoryTest{
     }
 
 
+    //负载均衡
+    @Test
+    public void testRibbon(){
+        //服务id
+        String serviceId = "NM-SERVICE-MANAGE-CMS";
+        for (int i=0;i<5;i++){
+            //通过服务id调用
+            ResponseEntity<CmsPage> forEntity = restTemplate.getForEntity("http://" + serviceId + "/cms/page/get/5a754adf6abb500ad05688d9", CmsPage.class);
+            CmsPage cmsPage = forEntity.getBody();
+            System.out.println(cmsPage);
+        }
+    }
 
 
 
