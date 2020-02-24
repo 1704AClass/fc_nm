@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface TeachplanMapper {
 
-    public TeachplanNode selectList(String courseId);
+    TeachplanNode selectList(String courseId);
 
 
 }

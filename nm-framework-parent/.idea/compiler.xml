@@ -7,17 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="nm-service-api" />
-        <module name="nm-framework-common" />
-        <module name="nm-govern-center" />
-        <module name="test-rabbitmq-producer" />
-        <module name="test_rabbitmq-producer" />
-        <module name="nm-service-manage-course" />
-        <module name="nm-service-base-filesystem" />
         <module name="test-rabbitmq-consumer" />
-        <module name="nm-service-manage-cms" />
+        <module name="nm-govern-center" />
+        <module name="nm-service-manage-course" />
+        <module name="test_rabbitmq-producer" />
+        <module name="test-rabbitmq-producer" />
         <module name="nm-framework-utils" />
-        <module name="nm-framework-model" />
+        <module name="nm-service-base-filesystem" />
         <module name="nm-service-manage-cms-client" />
+        <module name="nm-framework-model" />
+        <module name="nm-service-manage-cms" />
+        <module name="nm-framework-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

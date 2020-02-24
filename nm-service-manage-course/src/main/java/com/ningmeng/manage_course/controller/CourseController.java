@@ -1,9 +1,7 @@
 package com.ningmeng.manage_course.controller;
 
 import com.ningmeng.api.course.CourseControllerApi;
-import com.ningmeng.framework.domain.course.CourseBase;
-import com.ningmeng.framework.domain.course.CoursePic;
-import com.ningmeng.framework.domain.course.Teachplan;
+import com.ningmeng.framework.domain.course.*;
 import com.ningmeng.framework.domain.course.ext.TeachplanNode;
 import com.ningmeng.framework.domain.course.request.CourseListRequest;
 import com.ningmeng.framework.domain.course.response.AddCourseResult;
@@ -65,8 +63,17 @@ public class CourseController implements CourseControllerApi {
         return courseService.deleteCoursePic(courseId);
     }
 
+    @Override
+    @GetMapping("/courseview/{id}")
+    public CourseView courseView(@PathVariable("id") String id) {
+        return courseService.courseView(id);
+    }
 
-
+    @Override
+    @PostMapping("/preview/{id}")
+    public CoursePublishResult preview(@PathVariable("id") String id) {
+        return courseService.preview(id);
+    }
 
 
 }
