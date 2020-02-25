@@ -1,6 +1,7 @@
 package com.ningmeng.api.cmsApi;
 
 import com.ningmeng.framework.domain.cms.CmsPage;
+import com.ningmeng.framework.domain.cms.CmsPostPageResult;
 import com.ningmeng.framework.domain.cms.request.QueryPageRequest;
 import com.ningmeng.framework.domain.cms.response.CmsPageResult;
 import com.ningmeng.framework.model.response.QueryResponseResult;
@@ -40,5 +41,8 @@ public interface CmsPageControllerApi {
 
     @ApiOperation("保存页面")
     public CmsPageResult save(CmsPage cmsPage);
+
+    @ApiOperation("一键发布页面")
+    public CmsPostPageResult postPageQuick(CmsPage cmsPage);
 
 }

@@ -4,6 +4,7 @@ package com.ningmeng.manage_cms.controller;
 import com.alibaba.fastjson.JSON;
 import com.ningmeng.api.cmsApi.CmsPageControllerApi;
 import com.ningmeng.framework.domain.cms.CmsPage;
+import com.ningmeng.framework.domain.cms.CmsPostPageResult;
 import com.ningmeng.framework.domain.cms.request.QueryPageRequest;
 import com.ningmeng.framework.domain.cms.response.CmsCode;
 import com.ningmeng.framework.domain.cms.response.CmsPageResult;
@@ -84,6 +85,12 @@ public class CmsPageController implements CmsPageControllerApi {
     @PostMapping("/save")
     public CmsPageResult save(@RequestBody CmsPage cmsPage) {
         return pageService.save(cmsPage);
+    }
+
+    @Override
+    @PostMapping("/postPageQuick")
+    public CmsPostPageResult postPageQuick(@RequestBody CmsPage cmsPage) {
+        return pageService.postPageQuick(cmsPage);
     }
 
     //发送页面发布消息

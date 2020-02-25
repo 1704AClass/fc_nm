@@ -8,6 +8,8 @@ import com.ningmeng.framework.model.response.QueryResponseResult;
 import com.ningmeng.framework.model.response.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.PathVariable;
+
 @Api(value = "课程管理Api" ,description = "提供课程管理的增删改查")
 public interface CourseControllerApi {
 
@@ -38,5 +40,7 @@ public interface CourseControllerApi {
     @ApiOperation("预览课程")
     public CoursePublishResult preview(String id);
 
+    @ApiOperation("发布课程")
+    public CoursePublishResult publish(@PathVariable("id") String id);
 
 }

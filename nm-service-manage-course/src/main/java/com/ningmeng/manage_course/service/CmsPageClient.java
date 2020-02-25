@@ -2,6 +2,7 @@ package com.ningmeng.manage_course.service;
 
 import com.ningmeng.framework.client.NmServiceList;
 import com.ningmeng.framework.domain.cms.CmsPage;
+import com.ningmeng.framework.domain.cms.CmsPostPageResult;
 import com.ningmeng.framework.domain.cms.response.CmsPageResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,9 @@ public interface CmsPageClient {
     @PostMapping("/cms/page/save")
     public CmsPageResult save(@RequestBody CmsPage cmsPage);
 
-
+    //一键发布页面
+    @PostMapping("/cms/page/postPageQuick")
+    public CmsPostPageResult postPageQuick(@RequestBody CmsPage cmsPage);
 
 
 }
