@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/../nm-service-manage-course/pom.xml" />
         <option value="$PROJECT_DIR$/../nm-service-base-filesystem/pom.xml" />
         <option value="$PROJECT_DIR$/../nm-service-manage-cms/pom.xml" />
+        <option value="$PROJECT_DIR$/../nm-service-search/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
