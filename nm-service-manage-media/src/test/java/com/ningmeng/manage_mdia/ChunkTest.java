@@ -5,7 +5,9 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class ChunkTest  {
@@ -13,7 +15,7 @@ public class ChunkTest  {
     @Test
     public void testChunk() throws IOException{
         File sourceFile = new File("D:/video/Minions.mp4");
-        String chunkPath = "D:/video/ffmpeg/";
+        String chunkPath = "D:/video/ffmpeg/chunk/";
         File chunkFolder = new File(chunkPath);
         if(!chunkFolder.exists()){
             chunkFolder.mkdirs();
@@ -56,7 +58,7 @@ public class ChunkTest  {
     @Test
     public void testMerge() throws IOException{
         //块文件目录
-        File chunkFolder = new File("D:/video/ffmpeg/");
+        File chunkFolder = new File("D:/video/ffmpeg/chunk/");
         //合并文件
         File mergeFile = new File("D:/video/ffmpeg/Minion.mp4");
         if (mergeFile.exists()){
@@ -67,15 +69,15 @@ public class ChunkTest  {
         //用于写文件
         RandomAccessFile raf_write = new RandomAccessFile(mergeFile,"rw");
         //指针指向文件顶端
-        //raf_write.seek(0);
+        raf_write.seek(0);
         //缓冲区
         byte[] b = new byte[1024];
         //分块列表
         File[] fileArray = chunkFolder.listFiles();
         //转成集合，便于排序
-        //ArrayList<File> fileList = new ArrayList<>(Arrays.asList(fileArray));
+        ArrayList<File> fileList = new ArrayList<>(Arrays.asList(fileArray));
         //从小到大排序
-        Arrays.sort(fileArray, new Comparator<File>() {
+        Collections.sort(fileList, new Comparator<File>() {
             @Override
             public int compare(File o1, File o2) {
                 if(Integer.parseInt(o1.getName()) > Integer.parseInt(o2.getName())){
@@ -89,7 +91,7 @@ public class ChunkTest  {
             RandomAccessFile raf_read = new RandomAccessFile(chunFile,"r");
             int len = -1;
             while ((len = raf_read.read(b)) != -1){
-                raf_write.write(b,0,len);
+                raf_write.write(b,0, len);
             }
             raf_read.close();
         }
