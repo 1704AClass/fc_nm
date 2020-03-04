@@ -1,17 +1,20 @@
 package com.ningmeng.manage_media.service;
 
+import com.alibaba.fastjson.JSON;
 import com.ningmeng.framework.domain.media.MediaFile;
 import com.ningmeng.framework.domain.media.response.CheckChunkResult;
 import com.ningmeng.framework.domain.media.response.MediaCode;
 import com.ningmeng.framework.exception.ExceptionCast;
 import com.ningmeng.framework.model.response.CommonCode;
 import com.ningmeng.framework.model.response.ResponseResult;
+import com.ningmeng.manage_media.config.RabbitMQConfig;
 import com.ningmeng.manage_media.controller.MediaUploadController;
 import com.ningmeng.manage_media.dao.MediaFileRepository;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -28,6 +31,18 @@ public class MediaUploadService {
 
     @Resource
     MediaFileRepository mediaFileRepository;
+
+    @Resource
+    private RabbitTemplate rabbitTemplate;
+
+    //视频处理队列
+    @Value("${nm-service-manage-media.mq.queue-media-video-processor}")
+    public  String queue_media_video_processtask;
+
+    //视频处理路由
+    @Value("${nm-service-manage-media.mq.routingkey-media-video}")
+    public  String routingkey_media_video;
+
 
     //上传文件根目录
     @Value("${nm-service-manage-media.upload-location}")
@@ -294,6 +309,53 @@ public class MediaUploadService {
         }
         return mergeFile;
     }
+
+
+
+    //向MQ发送视频处理消息
+    public ResponseResult sendProcessVideoMsg(String mediaId){
+        Optional<MediaFile> optional = mediaFileRepository.findById(mediaId);
+        if(!optional.isPresent()){
+            return new ResponseResult(CommonCode.FAIL);
+        }
+        MediaFile mediaFile = optional.get();
+        //发送视频处理消息
+        Map<String,String> msgMap = new HashMap<>();
+        msgMap.put("mediaId",mediaId);
+        //发送的消息
+        String msg = JSON.toJSONString(msgMap);
+        try {
+            this.rabbitTemplate.convertAndSend(RabbitMQConfig.EX_MEDIA_PROCESSTASK,routingkey_media_video,msg);
+            LOGGER.info("send media process task msg:{}",msg);
+        }catch (Exception e){
+            e.printStackTrace();
+            LOGGER.info("send media process task error,msg is:{},error:{}",msg,e.getMessage());
+            return new ResponseResult(CommonCode.FAIL);
+        }
+        return new ResponseResult(CommonCode.SUCCESS);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
