@@ -81,5 +81,11 @@ public class CourseController implements CourseControllerApi {
         return courseService.publish(id);
     }
 
+    @Override
+    @PostMapping("/savemedia")
+    public ResponseResult savemedia(@RequestBody TeachplanMedia teachplanMedia) {
+        return courseService.savenmedia(teachplanMedia);
+    }
+
 
 }
