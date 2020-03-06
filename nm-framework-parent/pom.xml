@@ -16,6 +16,7 @@
         <module>../nm-govern-center</module>
         <module>../nm-service-manage-cms</module>
         <module>../nm-service-search</module>
+        <module>../nm-service-learning</module>
         <module>../nm-service-manage-media</module>
         <module>../nm-service-manage-media-processor</module>
     </modules>

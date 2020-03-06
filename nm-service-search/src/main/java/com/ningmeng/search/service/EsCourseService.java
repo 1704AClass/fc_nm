@@ -1,6 +1,7 @@
 package com.ningmeng.search.service;
 
 import com.ningmeng.framework.domain.course.CoursePub;
+import com.ningmeng.framework.domain.course.TeachplanMediaPub;
 import com.ningmeng.framework.domain.search.CourseSearchParam;
 import com.ningmeng.framework.model.response.CommonCode;
 import com.ningmeng.framework.model.response.QueryResponseResult;
@@ -35,10 +36,14 @@ public class EsCourseService {
 
     @Value("${ningmeng.course.index}")
     private String es_index;
+    @Value("${ningmeng.course.media_index}")
+    private String media_type;
     @Value("${ningmeng.course.type}")
     private String es_type;
     @Value("${ningmeng.course.source_field}")
     private String source_field;
+    @Value("${ningmeng.course.media_source_fileIds}")
+    private String media_source_fileIds;
 
     @Resource
     private RestHighLevelClient restHighLevelClient;
@@ -198,6 +203,53 @@ public class EsCourseService {
     }
 
 
+    //根据课程计划查询媒资信息
+    public QueryResponseResult getmedia(String[] teachplanIds) {
+        //设置索引
+        SearchRequest searchRequest = new SearchRequest();
+        //设置类型
+        searchRequest.types(media_type);
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        //source源字段过滤，查询所有字段
+        String[] source_fileIds = media_source_fileIds.split(",");
+
+        searchSourceBuilder.fetchSource(source_fileIds,new String[]{});
+        searchRequest.source(searchSourceBuilder);
+        SearchResponse searchResponse = null;
+        try {
+            //执行搜索
+            searchResponse = restHighLevelClient.search(searchRequest);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        //获取搜索结果
+        SearchHits hits = searchResponse.getHits();
+        SearchHit[] searchHits = hits.getHits();
+        Map<String,CoursePub> map = new HashMap<>();
+        //数据列表
+        List<TeachplanMediaPub> teachplanMediaPubList = new ArrayList<>();
+        for (SearchHit hit: searchHits){
+            TeachplanMediaPub teachplanMediaPub = new TeachplanMediaPub();
+            Map<String, Object> sourceAsMap = hit.getSourceAsMap();
+            //取出课程计划媒资信息
+            String courseid = (String) sourceAsMap.get("courseid");
+            String media_id = (String) sourceAsMap.get("media_id");
+            String media_url = (String) sourceAsMap.get("media_url");
+            String teachplan_id = (String) sourceAsMap.get("teachplan_id");
+            String media_fileoriginalname = (String) sourceAsMap.get("media_fileoriginalname");
+            teachplanMediaPub.setCourseId(courseid);
+            teachplanMediaPub.setMediaId(media_id);
+            teachplanMediaPub.setMediaUrl(media_url);
+            teachplanMediaPub.setMediaFileOriginalName(media_fileoriginalname);
+            teachplanMediaPub.setTeachplanId(teachplan_id);
+            teachplanMediaPubList.add(teachplanMediaPub);
+        }
+        //构建返回课程媒资信息对象
+        QueryResult<TeachplanMediaPub> queryResult = new QueryResult<>();
+        queryResult.setList(teachplanMediaPubList);
+        QueryResponseResult queryResponseResult = new QueryResponseResult(CommonCode.SUCCESS,queryResult);
+        return queryResponseResult;
+    }
 
 
 
