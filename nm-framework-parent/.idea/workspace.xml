@@ -103,34 +103,18 @@
       <recent name="D:\idea\code\nm-service-manage-cms\src\main\java\com\ningmeng\manage_cms\service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.UcenterAuthApplication">
-    <configuration name="ChunkTest.testChunk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="nm-service-manage-media" />
+  <component name="RunManager" selected="JUnit.ClientTest.clientTest">
+    <configuration name="ClientTest.clientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nm-service-ucenter-auth" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ningmeng.manage_mdia.*" />
+          <option name="PATTERN" value="com.ningmeng.auth.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ningmeng.manage_mdia" />
-      <option name="MAIN_CLASS_NAME" value="com.ningmeng.manage_mdia.ChunkTest" />
-      <option name="METHOD_NAME" value="testChunk" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChunkTest.testMerge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="nm-service-manage-media" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ningmeng.manage_mdia.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ningmeng.manage_mdia" />
-      <option name="MAIN_CLASS_NAME" value="com.ningmeng.manage_mdia.ChunkTest" />
-      <option name="METHOD_NAME" value="testMerge" />
+      <option name="PACKAGE_NAME" value="com.ningmeng.auth" />
+      <option name="MAIN_CLASS_NAME" value="com.ningmeng.auth.ClientTest" />
+      <option name="METHOD_NAME" value="clientTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,6 +152,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RedisTest.RandomTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nm-service-ucenter-auth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ningmeng.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ningmeng.auth" />
+      <option name="MAIN_CLASS_NAME" value="com.ningmeng.auth.RedisTest" />
+      <option name="METHOD_NAME" value="RandomTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.redisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nm-service-ucenter-auth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ningmeng.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ningmeng.auth" />
+      <option name="MAIN_CLASS_NAME" value="com.ningmeng.auth.RedisTest" />
+      <option name="METHOD_NAME" value="redisTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Govern01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="nm-govern-center" />
       <extension name="coverage">
@@ -183,21 +199,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Govern02" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
-      <module name="nm-govern-center" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ningmeng.goven.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ningmeng.goven.GovernCenterApplication" />
-      <option name="VM_PARAMETERS" value="-DPORT=50102 -DEUREKA_SERVER=http://eureka01:50101/eureka/ -DEUREKA_DOMAIN=eureka02" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UcenterAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="nm-service-ucenter-auth" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ningmeng.auth.UcenterAuthApplication" />
@@ -206,21 +207,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ChunkTest.testChunk" />
-      <item itemvalue="JUnit.ChunkTest.testMerge" />
       <item itemvalue="JUnit.JwtTest.testCreateJwt" />
       <item itemvalue="JUnit.JwtTest.testVerify" />
       <item itemvalue="Spring Boot.Govern01" />
       <item itemvalue="Spring Boot.UcenterAuthApplication" />
-      <item itemvalue="Spring Boot.Govern02" />
+      <item itemvalue="JUnit.RedisTest.RandomTest" />
+      <item itemvalue="JUnit.RedisTest.redisTest" />
+      <item itemvalue="JUnit.ClientTest.clientTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClientTest.clientTest" />
+        <item itemvalue="JUnit.RedisTest.redisTest" />
+        <item itemvalue="JUnit.RedisTest.RandomTest" />
         <item itemvalue="JUnit.JwtTest.testVerify" />
         <item itemvalue="JUnit.JwtTest.testCreateJwt" />
-        <item itemvalue="JUnit.ChunkTest.testMerge" />
-        <item itemvalue="JUnit.ChunkTest.testChunk" />
-        <item itemvalue="Spring Boot.Govern02" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +277,9 @@
       <workItem from="1583495454347" duration="4998000" />
       <workItem from="1583752650795" duration="3962000" />
       <workItem from="1583759173450" duration="562000" />
-      <workItem from="1583759838564" duration="2387000" />
+      <workItem from="1583759838564" duration="2529000" />
+      <workItem from="1583840313153" duration="1198000" />
+      <workItem from="1583841809257" duration="7685000" />
     </task>
     <servers />
   </component>
@@ -300,10 +303,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="521" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1583753963223" />
-    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1583501143943">
+    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1583848807000">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1583501143943" />
+    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1583848807000" />
     <state x="762" y="323" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581599551539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -324,38 +327,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="441" y="53" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583753903761" />
-    <state width="1218" height="295" key="GridCell.Tab.0.bottom" timestamp="1583760648986">
+    <state width="1208" height="221" key="GridCell.Tab.0.bottom" timestamp="1583846594971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1218" height="295" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583760648986" />
-    <state width="1218" height="295" key="GridCell.Tab.0.center" timestamp="1583760648985">
+    <state width="1208" height="221" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583846594971" />
+    <state width="1208" height="221" key="GridCell.Tab.0.center" timestamp="1583846594971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1218" height="295" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583760648985" />
-    <state width="1218" height="295" key="GridCell.Tab.0.left" timestamp="1583760648984">
+    <state width="1208" height="221" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583846594971" />
+    <state width="1208" height="221" key="GridCell.Tab.0.left" timestamp="1583846594971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1218" height="295" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583760648984" />
-    <state width="1218" height="295" key="GridCell.Tab.0.right" timestamp="1583760648985">
+    <state width="1208" height="221" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583846594971" />
+    <state width="1208" height="221" key="GridCell.Tab.0.right" timestamp="1583846594971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1218" height="295" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583760648985" />
-    <state width="1218" height="295" key="GridCell.Tab.1.bottom" timestamp="1583760648987">
+    <state width="1208" height="221" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583846594971" />
+    <state width="1208" height="221" key="GridCell.Tab.1.bottom" timestamp="1583846430315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1218" height="295" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583760648987" />
-    <state width="1218" height="295" key="GridCell.Tab.1.center" timestamp="1583760648986">
+    <state width="1208" height="221" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583846430315" />
+    <state width="1208" height="221" key="GridCell.Tab.1.center" timestamp="1583846430315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1218" height="295" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1583760648986" />
-    <state width="1218" height="295" key="GridCell.Tab.1.left" timestamp="1583760648986">
+    <state width="1208" height="221" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1583846430315" />
+    <state width="1208" height="221" key="GridCell.Tab.1.left" timestamp="1583846430315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1218" height="295" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1583760648986" />
-    <state width="1218" height="295" key="GridCell.Tab.1.right" timestamp="1583760648987">
+    <state width="1208" height="221" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1583846430315" />
+    <state width="1208" height="221" key="GridCell.Tab.1.right" timestamp="1583846430315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1218" height="295" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1583760648987" />
+    <state width="1208" height="221" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1583846430315" />
     <state width="930" height="225" key="GridCell.Tab.2.bottom" timestamp="1582295254153">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -388,10 +391,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="885" y="203" key="chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1582549158122" />
-    <state x="764" y="155" key="com.intellij.ide.util.TipDialog" timestamp="1583759839436">
+    <state x="764" y="155" key="com.intellij.ide.util.TipDialog" timestamp="1583841816282">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="764" y="155" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583759839436" />
+    <state x="764" y="155" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583841816282" />
     <state x="440" y="380" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582548843712">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -400,13 +403,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="231" y="84" width="1180" height="583" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1582547292288" />
-    <state x="446" y="218" width="672" height="677" key="run.anything.popup" timestamp="1583242464225">
+    <state x="446" y="218" width="672" height="677" key="run.anything.popup" timestamp="1583848149411">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="446" y="218" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1583242464225" />
-    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup" timestamp="1583761860959">
+    <state x="446" y="218" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1583848149411" />
+    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup" timestamp="1583849071901">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1583761860959" />
+    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1583849071901" />
   </component>
 </project>
