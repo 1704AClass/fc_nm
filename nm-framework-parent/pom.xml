@@ -14,11 +14,13 @@
         <module>../nm-service-manage-course</module>
         <module>../nm-service-base-filesystem</module>
         <module>../nm-govern-center</module>
+        <module>../nm-govern-gateway</module>
         <module>../nm-service-manage-cms</module>
         <module>../nm-service-search</module>
         <module>../nm-service-learning</module>
         <module>../nm-service-manage-media</module>
         <module>../nm-service-manage-media-processor</module>
+        <module>../nm-service-ucenter</module>
         <module>../nm-service-ucenter-auth</module>
     </modules>
     <parent>
