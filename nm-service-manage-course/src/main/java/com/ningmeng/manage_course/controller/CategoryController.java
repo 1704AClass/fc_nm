@@ -6,6 +6,7 @@ import com.ningmeng.framework.domain.course.CourseMarket;
 import com.ningmeng.framework.domain.course.ext.CategoryNode;
 import com.ningmeng.framework.model.response.ResponseResult;
 import com.ningmeng.manage_course.service.CategoryService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -23,6 +24,7 @@ public class CategoryController implements CategoryControllerApi {
     }
 
     @Override
+    @PreAuthorize("hasAuthority('course_get_baseinfo')")
     @GetMapping("/coursebase/get/{courseId}")
     public CourseBase getCourseBaseById(@PathVariable("courseId") String courseId) throws RuntimeException {
         return categoryService.getCourseBaseById(courseId);

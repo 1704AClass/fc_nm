@@ -1,6 +1,7 @@
 package com.ningmeng.auth.service;
 
 import com.ningmeng.auth.client.UserClient;
+import com.ningmeng.framework.domain.ucenter.NmMenu;
 import com.ningmeng.framework.domain.ucenter.ext.NmUserExt;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -50,6 +53,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         //取出正确密码（hash值）
         String password = userext.getPassword();
+        //指定用户的权限，这里暂时硬编码
+        List<String> permissionList = new ArrayList<>();
+//        permissionList.add("course_get_baseinfo");
+//        permissionList.add("course_find_pic");
+        List<NmMenu> permissions = userext.getPermissions();
+        for(NmMenu nmMenu:permissions){
+            permissionList.add(nmMenu.getCode());
+        }
+        //将权限串中间以逗号分隔
+        String permissionString = StringUtils.join(permissionList.toArray(),",");
         String user_permission_string = "";
         UserJwt userDetails = new UserJwt(username,password,AuthorityUtils.commaSeparatedStringToAuthorityList(user_permission_string));
         //这里暂时使用静态密码

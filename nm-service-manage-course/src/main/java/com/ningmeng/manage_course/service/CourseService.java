@@ -19,6 +19,7 @@ import com.ningmeng.manage_course.dao.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -29,6 +30,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class CourseService {
 
     @Resource

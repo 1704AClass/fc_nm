@@ -29,8 +29,8 @@
       <list>
         <option value="package-info" />
         <option value="package.json" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -68,7 +68,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/../nm-service-manage-cms/src/main/java/com/ningmeng" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nm-service-ucenter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nm-service-ucenter/src/main/resources/com/ningmeng/ucenter" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -96,11 +96,11 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\idea\code\nm-service-manage-course\src\main\resources" />
-      <recent name="D:\idea\code\nm-service-ucenter-auth\src\main\resources" />
-      <recent name="D:\idea\code\nm-framework-model\src\main\java\com\ningmeng\framework\domain\ucenter" />
-      <recent name="D:\idea\code\nm-service-manage-cms\src\main\java\com\ningmeng\manage_cms\dao" />
-      <recent name="D:\idea\code\nm-service-manage-cms\src\main\java\com\ningmeng\manage_cms\service" />
+      <recent name="D:\idea\code\nm-service-ucenter\src\main\resources\com\ningmeng\ucenter" />
+      <recent name="D:\idea\code\nm-service-ucenter\src\main\resources\com\ningmeng" />
+      <recent name="D:\idea\code\nm-service-ucenter\src\main\resources\com" />
+      <recent name="D:\idea\code\nm-service-ucenter\src\main\resources" />
+      <recent name="D:\idea\code\nm-service-ucenter\src\main\java\com\ningmeng\ucenter\dao" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.ClientTest.clientTest">
@@ -290,7 +290,9 @@
       <workItem from="1583841809257" duration="7770000" />
       <workItem from="1583909535443" duration="4000" />
       <workItem from="1583916747419" duration="1253000" />
-      <workItem from="1583927410638" duration="8135000" />
+      <workItem from="1583927410638" duration="8358000" />
+      <workItem from="1584015155862" duration="4678000" />
+      <workItem from="1584059762948" duration="1147000" />
     </task>
     <servers />
   </component>
@@ -310,14 +312,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="386" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1582548701509" />
-    <state x="521" y="209" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583753963223">
+    <state x="521" y="209" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584018693333">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="521" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1583753963223" />
-    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1583932149608">
+    <state x="521" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1584018693333" />
+    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1584016608759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1583932149608" />
+    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584016608759" />
     <state x="762" y="323" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581599551539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -402,10 +404,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="885" y="203" key="chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1582549158122" />
-    <state x="764" y="155" key="com.intellij.ide.util.TipDialog" timestamp="1583927409508">
+    <state x="764" y="155" key="com.intellij.ide.util.TipDialog" timestamp="1584059762893">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="764" y="155" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583927409508" />
+    <state x="764" y="155" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584059762893" />
     <state x="440" y="380" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582548843712">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -414,13 +416,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="231" y="84" width="1180" height="583" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1582547292288" />
-    <state x="446" y="218" width="672" height="677" key="run.anything.popup" timestamp="1583848149411">
+    <state x="446" y="218" width="672" height="677" key="run.anything.popup" timestamp="1584016959786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="446" y="218" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1583848149411" />
-    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup" timestamp="1583933838119">
+    <state x="446" y="218" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1584016959786" />
+    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup" timestamp="1584019325786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1583933838119" />
+    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584019325786" />
   </component>
 </project>
