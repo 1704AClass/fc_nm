@@ -5,13 +5,17 @@ import com.ningmeng.framework.domain.course.*;
 import com.ningmeng.framework.domain.course.ext.TeachplanNode;
 import com.ningmeng.framework.domain.course.request.CourseListRequest;
 import com.ningmeng.framework.domain.course.response.AddCourseResult;
+import com.ningmeng.framework.exception.ExceptionCast;
+import com.ningmeng.framework.model.response.CommonCode;
 import com.ningmeng.framework.model.response.QueryResponseResult;
 import com.ningmeng.framework.model.response.ResponseResult;
+import com.ningmeng.framework.utils.XcOauth2Util;
 import com.ningmeng.manage_course.service.CourseService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/course")
@@ -19,6 +23,9 @@ public class CourseController implements CourseControllerApi {
 
     @Resource
     private CourseService courseService;
+
+    @Resource
+    private HttpServletRequest request;
 
     //查询课程计划
     @Override
@@ -37,7 +44,15 @@ public class CourseController implements CourseControllerApi {
     @PreAuthorize("hasAuthority('course_find_list')")
     @GetMapping("/coursebase/list/{page}/{size}")
     public QueryResponseResult findCourseList(@PathVariable("page") int page,@PathVariable("size") int size,CourseListRequest courseListRequest) {
-        return courseService.findCourseList(page,size,courseListRequest);
+
+        //调用工具类取出用户信息
+        XcOauth2Util xcOauth2Util = new XcOauth2Util();
+        XcOauth2Util.UserJwt userJwt = xcOauth2Util.getUserJwtFromHeader(request);
+        if (userJwt == null){
+            ExceptionCast.cast(CommonCode.UNAUTHENTICATED);
+        }
+        String companyId = userJwt.getCompanyId();
+        return courseService.findCourseList(companyId,page,size,courseListRequest);
     }
 
     @Override

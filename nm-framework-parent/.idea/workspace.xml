@@ -29,8 +29,8 @@
       <list>
         <option value="package-info" />
         <option value="package.json" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -68,7 +68,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/../nm-service-manage-cms/src/main/java/com/ningmeng" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nm-service-ucenter/src/main/resources/com/ningmeng/ucenter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nm-service-manage-order" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -292,7 +292,8 @@
       <workItem from="1583916747419" duration="1253000" />
       <workItem from="1583927410638" duration="8358000" />
       <workItem from="1584015155862" duration="4678000" />
-      <workItem from="1584059762948" duration="1147000" />
+      <workItem from="1584059762948" duration="5876000" />
+      <workItem from="1584100556148" duration="4937000" />
     </task>
     <servers />
   </component>
@@ -316,10 +317,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="521" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1584018693333" />
-    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1584016608759">
+    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1584104023394">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584016608759" />
+    <state x="1015" y="110" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584104023394" />
     <state x="762" y="323" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581599551539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -336,10 +337,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="835" y="137" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1583754020953" />
-    <state x="441" y="53" key="FileChooserDialogImpl" timestamp="1583927463708">
+    <state x="441" y="53" key="FileChooserDialogImpl" timestamp="1584102185338">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="441" y="53" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583927463708" />
+    <state x="441" y="53" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584102185338" />
     <state width="1208" height="218" key="GridCell.Tab.0.bottom" timestamp="1583849593077">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -392,22 +393,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="588" y="41" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1582288515973" />
-    <state x="106" y="232" key="NewModule_or_Project.wizard" timestamp="1583927465653">
+    <state x="106" y="232" key="NewModule_or_Project.wizard" timestamp="1584102187571">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="106" y="232" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1583927465653" />
-    <state x="365" y="0" key="SettingsEditor" timestamp="1583927468187">
+    <state x="106" y="232" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1584102187571" />
+    <state x="365" y="0" key="SettingsEditor" timestamp="1584102190006">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="365" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583927468187" />
+    <state x="365" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584102190006" />
     <state x="885" y="203" key="chooseDestDirectoryDialog" timestamp="1582549158122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="885" y="203" key="chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1582549158122" />
-    <state x="764" y="155" key="com.intellij.ide.util.TipDialog" timestamp="1584059762893">
+    <state x="764" y="155" key="com.intellij.ide.util.TipDialog" timestamp="1584100556946">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="764" y="155" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584059762893" />
+    <state x="764" y="155" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584100556946" />
     <state x="440" y="380" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582548843712">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -416,13 +417,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="231" y="84" width="1180" height="583" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1582547292288" />
-    <state x="446" y="218" width="672" height="677" key="run.anything.popup" timestamp="1584016959786">
+    <state x="446" y="218" width="672" height="677" key="run.anything.popup" timestamp="1584100888630">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="446" y="218" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1584016959786" />
-    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup" timestamp="1584019325786">
+    <state x="446" y="218" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1584100888630" />
+    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup" timestamp="1584102784911">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584019325786" />
+    <state x="618" y="162" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584102784911" />
   </component>
 </project>
